@@ -1,6 +1,6 @@
 # [english-cards]
 [english-cards]:https://english-cards.herokuapp.com/
-[![Build Status](https://travis-ci.org/VictorSamilenko/english-cards.svg?branch=master)](https://travis-ci.org/VictorSamilenko/english-cards)
+[![Build Status](https://travis-ci.org/VictorSamilenko/english-cards.svg?branch=ENCA_test)](https://travis-ci.org/VictorSamilenko/english-cards)
 
 Для запуска приложения необходимо: 
 1. Выполнить скрипт DB/ddl.init_db.sql
