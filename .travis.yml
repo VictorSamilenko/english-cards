@@ -1,0 +1,7 @@
+before_script: psql -c 'create database test;' -U postgres
+jdk: oraclejdk8
+services: postgresql
+addons: 9.4"
+language: java
+sudo: false
+script: mvn clean verify

@@ -1,0 +1,66 @@
+.topbutton{
+    margin-top:8px;
+    margin-right: 8px;
+}
+
+.lang{
+    border-radius:5px;
+    margin-right:5px;
+}
+
+.form-group .glyphicon{
+    display: none;
+}
+
+.progress{
+    margin-top: 50px;
+}
+
+.textarea-modal{
+    max-width: 100%;
+}
+
+tr.slider {
+    display: none;
+}
+a i.fa,
+img.lang
+{
+    cursor: pointer;
+}
+
+.grayscale {
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+    -ms-filter: grayscale(100%);
+    -o-filter: grayscale(100%);
+    filter: grayscale(100%);
+    filter: url(grayscale.svg#greyscale); /* Firefox 4+ */
+    filter: gray; /* IE 6-9 */
+}
+
+.ui-menu .ui-menu-item a {
+    font-size: 12px;
+}
+.ui-autocomplete {
+    z-index: 1510 !important;
+}
+.ui-menu-item > a.ui-corner-all {
+    display: block;
+    padding: 3px 15px;
+    clear: both;
+    font-weight: normal;
+    line-height: 18px;
+    color: #555555;
+    white-space: nowrap;
+    text-decoration: none;
+}
+.ui-state-hover, .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #0088cc;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    background-image: none;
+}
