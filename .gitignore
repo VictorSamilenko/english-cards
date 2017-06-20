@@ -2,4 +2,4 @@ hr.sh
 /*.iml
 /*.jar
 target/*
-idea/*
+.idea/*
