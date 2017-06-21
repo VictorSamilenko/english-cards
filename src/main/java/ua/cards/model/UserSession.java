@@ -22,7 +22,7 @@ public class UserSession implements DomainModel {
 
     @Column(name = "user_agent", nullable = false)
     private String userAgent;
-    
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;

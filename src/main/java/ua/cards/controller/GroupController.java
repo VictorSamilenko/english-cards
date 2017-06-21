@@ -63,7 +63,7 @@ public class GroupController {
         Set<Group> groups = service.get(user);
         JSONObject resultJSON = new JSONObject();
         resultJSON.put("status", HttpStatus.OK);
-        resultJSON.put("groups",DataToJSON.convertSetGroupsToJSON(groups));
+        resultJSON.put("groups", DataToJSON.convertSetGroupsToJSON(groups));
         return new ResponseEntity<String>(resultJSON.toJSONString(), HttpStatus.OK);
     }
 

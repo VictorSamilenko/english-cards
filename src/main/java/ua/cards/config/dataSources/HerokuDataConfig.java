@@ -26,7 +26,7 @@ public class HerokuDataConfig {
 
         HikariConfig config = new HikariConfig();
         config.setDriverClassName("org.postgresql.Driver");
-        config.setJdbcUrl("jdbc:postgresql://"+dbUri.getHost()+":"+dbUri.getPort() + dbUri.getPath());
+        config.setJdbcUrl("jdbc:postgresql://" + dbUri.getHost() + ":" + dbUri.getPort() + dbUri.getPath());
         config.setUsername(dbUri.getUserInfo().split(":")[0]);
         config.setPassword(dbUri.getUserInfo().split(":")[1]);
 

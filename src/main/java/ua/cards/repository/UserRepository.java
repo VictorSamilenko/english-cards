@@ -7,17 +7,14 @@ import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import ua.cards.model.Group;
 import ua.cards.model.User;
-import ua.cards.model.UserSession;
 
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Repository
-public class UserRepository implements MainRepository<User>{
+public class UserRepository implements MainRepository<User> {
 
     @Autowired
     SessionFactory sessionFactory;
@@ -25,7 +22,7 @@ public class UserRepository implements MainRepository<User>{
     @Override
     public Set<User> getAll() {
         Session session = sessionFactory.getCurrentSession();
-        Set<User> set = new HashSet<User>(session.createCriteria (User.class).list());
+        Set<User> set = new HashSet<User>(session.createCriteria(User.class).list());
         return set;
     }
 
@@ -44,22 +41,22 @@ public class UserRepository implements MainRepository<User>{
     @Override
     public void delete(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        User user = (User) session.get(User.class,id);
+        User user = (User) session.get(User.class, id);
         session.delete(user);
     }
 
     @Override
     public User get(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        User user = (User) session.get(User.class,id);
+        User user = (User) session.get(User.class, id);
         return user;
     }
 
     public User getUserByLogin(String login) {
         Session session = sessionFactory.getCurrentSession();
         Criteria criteria = session.createCriteria(User.class);
-        criteria.add(Restrictions.eq("login",login));
+        criteria.add(Restrictions.eq("login", login));
         List<User> list = criteria.list();
-        return (list!=null&&list.size()>0)?list.get(0):null;
+        return (list != null && list.size() > 0) ? list.get(0) : null;
     }
 }

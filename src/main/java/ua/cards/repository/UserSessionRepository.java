@@ -12,7 +12,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Repository
-public class UserSessionRepository implements MainRepository<UserSession>{
+public class UserSessionRepository implements MainRepository<UserSession> {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -40,7 +40,7 @@ public class UserSessionRepository implements MainRepository<UserSession>{
     @Override
     public void delete(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        session.delete((UserSession) session.get(UserSession.class,id));
+        session.delete((UserSession) session.get(UserSession.class, id));
     }
 
     public void delete(UserSession userSession) {
@@ -51,6 +51,6 @@ public class UserSessionRepository implements MainRepository<UserSession>{
     @Override
     public UserSession get(Long id) {
         Session session = sessionFactory.getCurrentSession();
-        return (UserSession) session.get(UserSession.class,id);
+        return (UserSession) session.get(UserSession.class, id);
     }
 }

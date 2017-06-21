@@ -42,25 +42,25 @@ public class WordRepository implements MainRepository<Word> {
 
     public Set<Word> getAll(User user, String language, int limit, int offset, String searchValue, String dir) {
         String strSQL = "select w1.id, w1.native_word, w1.description, w1.comment, w1.language, " +
-            "w2.id as tid, w2.native_word as tnative_word, w2.description as tdescription , w2.comment as tcomment, w2.language as tlanguage " +
-            "from (select distinct w1.* " +
-                  "from words w1 " +
-                  "left join word_groups wg on wg.word_id = w1.id " +
-                  "left join groups g on g.id = wg.group_id " +
-                  "left join word_translate wt on wt.native_word_id = w1.id " +
-                  "left join words w2 on w2.id = wt.translate_word_id " +
-                  "where w1.language = '" + language + "' " ;
+                "w2.id as tid, w2.native_word as tnative_word, w2.description as tdescription , w2.comment as tcomment, w2.language as tlanguage " +
+                "from (select distinct w1.* " +
+                "from words w1 " +
+                "left join word_groups wg on wg.word_id = w1.id " +
+                "left join groups g on g.id = wg.group_id " +
+                "left join word_translate wt on wt.native_word_id = w1.id " +
+                "left join words w2 on w2.id = wt.translate_word_id " +
+                "where w1.language = '" + language + "' ";
 
         if (user != null && !user.isAdmin())
             strSQL += " and ( g.user_id is null or g.user_id = " + user.getId() + " ) ";
 
         if (searchValue != null && !searchValue.isEmpty())
             strSQL += " and (w1.native_word like '%" + searchValue + "%' or " +
-                  "w1.description like '%" + searchValue + "%' or " +
-                  "w1.comment like '%" + searchValue + "%' or " +
-                  "w2.native_word like '%" + searchValue + "%' or " +
-                  "w2.description like '%" + searchValue + "%' or " +
-                  "w2.comment like '%" + searchValue + "%' )";
+                    "w1.description like '%" + searchValue + "%' or " +
+                    "w1.comment like '%" + searchValue + "%' or " +
+                    "w2.native_word like '%" + searchValue + "%' or " +
+                    "w2.description like '%" + searchValue + "%' or " +
+                    "w2.comment like '%" + searchValue + "%' )";
 
         if (dir != null)
             strSQL += " order by native_word " + dir + " ";
@@ -77,6 +77,7 @@ public class WordRepository implements MainRepository<Word> {
         List list = query.list();
         return new LinkedHashSet<Word>(list);
     }
+
     public long count(User user, String language) {
         return count(user, language, null);
     }
@@ -90,7 +91,7 @@ public class WordRepository implements MainRepository<Word> {
                 "left join word_translate wt on wt.native_word_id = w1.id " +
                 "left join words w2 on w2.id = wt.translate_word_id " +
                 "where w1.language = '" + language + "' " +
-                (user != null && !user.isAdmin() ? " and ( g.user_id is null or g.user_id = " + user.getId() + " ) ": " ") +
+                (user != null && !user.isAdmin() ? " and ( g.user_id is null or g.user_id = " + user.getId() + " ) " : " ") +
                 ((searchValue != null && !searchValue.isEmpty()) ?
                         " and (w1.native_word like '%" + searchValue + "%' or " +
                                 " w1.description like '%" + searchValue + "%' or " +

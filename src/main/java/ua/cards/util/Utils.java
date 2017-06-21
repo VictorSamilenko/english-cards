@@ -8,27 +8,27 @@ import java.security.NoSuchAlgorithmException;
 
 public class Utils {
 
-    public static String getTranslationLanguage(String nativeLanguage){
-        return (nativeLanguage.equals("rus"))?"eng":"rus";
+    public static String getTranslationLanguage(String nativeLanguage) {
+        return ("rus".equals(nativeLanguage)) ? "eng" : "rus";
     }
 
-    public static String MD5Encode(String str){
-        MessageDigest messageDigest = null;
+    public static String MD5Encode(String str) {
+        MessageDigest messageDigest;
         try {
             messageDigest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
+            return "";
         }
         messageDigest.reset();
         messageDigest.update(str.getBytes());
         byte[] digest = messageDigest.digest();
-        BigInteger bigInteger = new BigInteger(1,digest);
+        BigInteger bigInteger = new BigInteger(1, digest);
         return bigInteger.toString(16);
     }
 
-    public static String generateHashCode(String userAgent,
-                                          User user){
-        String hashCode = userAgent+user.getLogin()+user.getPassword();
+    public static String generateHashCode(String userAgent, User user) {
+        String hashCode = userAgent + user.getLogin() + user.getPassword();
         return MD5Encode(hashCode);
     }
 

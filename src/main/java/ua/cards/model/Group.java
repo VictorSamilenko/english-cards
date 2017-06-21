@@ -6,7 +6,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "GROUPS")
-public class Group implements DomainModel{
+public class Group implements DomainModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,6 +38,20 @@ public class Group implements DomainModel{
         this.words = group.getWords();
     }
 
+    public Group() {
+    }
+
+    public Group(String name, String comment) {
+        this.name = name;
+        this.comment = comment;
+    }
+
+    public Group(Long id, String name, String comment) {
+        this.id = id;
+        this.name = name;
+        this.comment = comment;
+    }
+
     public User getUser() {
         return user;
     }
@@ -52,20 +66,6 @@ public class Group implements DomainModel{
 
     public void setWords(Set<Word> words) {
         this.words = words;
-    }
-
-    public Group() {
-    }
-
-    public Group(String name, String comment) {
-        this.name = name;
-        this.comment = comment;
-    }
-
-    public Group(Long id,String name, String comment) {
-        this.id = id;
-        this.name = name;
-        this.comment = comment;
     }
 
     public Long getId() {

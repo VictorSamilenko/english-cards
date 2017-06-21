@@ -27,14 +27,14 @@ public class Word implements DomainModel {
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "word_translate", joinColumns = {
-            @JoinColumn(name = "native_word_id") },
-            inverseJoinColumns = { @JoinColumn(name = "translate_word_id") })
+            @JoinColumn(name = "native_word_id")},
+            inverseJoinColumns = {@JoinColumn(name = "translate_word_id")})
     private Set<Word> translations = new HashSet<Word>();
 
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinTable(name = "word_groups", joinColumns = {
-            @JoinColumn(name = "word_id") },
-            inverseJoinColumns = { @JoinColumn(name = "group_id") })
+            @JoinColumn(name = "word_id")},
+            inverseJoinColumns = {@JoinColumn(name = "group_id")})
     private Set<Group> groups = new HashSet<Group>();
 
 //    //TODO: DELETE THIS SET

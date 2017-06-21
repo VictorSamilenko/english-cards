@@ -16,22 +16,21 @@ public class AuthTag extends TagSupport {
         HttpServletRequest request = (HttpServletRequest) pageContext.getRequest();
         User user = (User) request.getAttribute("user");
         if (admin != null) {
-            if (admin && user != null && user.isAdmin()){
+            if (admin && user != null && user.isAdmin()) {
                 return EVAL_BODY_INCLUDE;
             } else {
                 return SKIP_BODY;
             }
         }
 
-
-        if (user == null){
-            if (authorized){
+        if (user == null) {
+            if (authorized) {
                 return SKIP_BODY;
             } else {
                 return EVAL_BODY_INCLUDE;
             }
         } else {
-            if(authorized){
+            if (authorized) {
                 return EVAL_BODY_INCLUDE;
             } else {
                 return SKIP_BODY;

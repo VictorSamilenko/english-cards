@@ -1,6 +1,5 @@
 package ua.cards.controller;
 
-import org.hibernate.Hibernate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -22,10 +21,10 @@ public class TestController {
     GroupService groupService;
 
     @RequestMapping(method = RequestMethod.GET)
-    public String test(HttpServletRequest request){
+    public String test(HttpServletRequest request) {
         User user = (User) request.getAttribute("user");
         Set<Group> groups = groupService.get(user);
-        request.setAttribute("groups",groups);
+        request.setAttribute("groups", groups);
         return "index";
     }
 }

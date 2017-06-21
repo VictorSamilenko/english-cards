@@ -18,22 +18,19 @@ public class AuthorizationFilter implements Filter {
 
     private static Pattern[] patterns;
 
-    static {
+    @Autowired
+    UserService service;
+
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this, filterConfig.getServletContext());
+
         String[] urlPatterns = {"/", "/words(/\\d*)?", "/groups(/\\d*)?", "/words/get", "/groups/get"};
         patterns = new Pattern[urlPatterns.length];
         int i = 0;
         for (String url : urlPatterns) {
             patterns[i++] = Pattern.compile(url);
         }
-    }
-
-    @Autowired
-    UserService service;
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-        SpringBeanAutowiringSupport.processInjectionBasedOnServletContext(this,
-                filterConfig.getServletContext());
     }
 
     @Override

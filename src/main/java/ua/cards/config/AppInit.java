@@ -8,11 +8,11 @@ import javax.servlet.Filter;
 
 public class AppInit extends AbstractAnnotationConfigDispatcherServletInitializer {
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[]{JpaConfig.class,WebConfig.class};
+        return new Class<?>[]{JpaConfig.class, WebConfig.class};
     }
 
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[]{JpaConfig.class,WebConfig.class};
+        return new Class<?>[]{JpaConfig.class, WebConfig.class};
     }
 
     protected String[] getServletMappings() {
@@ -23,6 +23,6 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     protected Filter[] getServletFilters() {
         CharacterEncodingFilter characterEncodingFilter = new CharacterEncodingFilter();
         characterEncodingFilter.setEncoding("UTF-8");
-        return new Filter[] { characterEncodingFilter,new AuthorizationFilter()};
+        return new Filter[]{characterEncodingFilter, new AuthorizationFilter()};
     }
 }

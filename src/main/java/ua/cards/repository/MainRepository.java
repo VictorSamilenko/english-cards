@@ -2,12 +2,11 @@ package ua.cards.repository;
 
 
 import org.hibernate.criterion.Criterion;
-import org.hibernate.criterion.Restrictions;
 import ua.cards.model.DomainModel;
 
 import java.util.Set;
 
-public interface MainRepository<V extends DomainModel>{
+public interface MainRepository<V extends DomainModel> {
 
     Set<V> getAll();
 
